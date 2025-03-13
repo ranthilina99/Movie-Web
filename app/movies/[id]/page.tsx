@@ -114,6 +114,13 @@ const similarMovies = [
   },
 ]
 
+export async function generateStaticParams() {
+  return movieData.map((movie) => ({
+    id: movie.id.toString(),
+  }));
+}
+
+
 export default function MovieDetailPage() {
   const params = useParams()
   const [activeTab, setActiveTab] = useState("overview")
