@@ -10,10 +10,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 
-export async function generateStaticParams() {
-  return [{ token: "example-token" }]
-}
-
 export default function ResetPasswordPage({ params }: { params: { token: string } }) {
   const router = useRouter()
   const { token } = params
@@ -28,24 +24,24 @@ export default function ResetPasswordPage({ params }: { params: { token: string 
   const [tokenValid, setTokenValid] = useState(true)
 
   // Validate token on component mount
-  useState(() => {
-    // This would be an API call to validate the token
-    const validateToken = async () => {
-      try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1000))
+  // useState(() => {
+  //   // This would be an API call to validate the token
+  //   const validateToken = async () => {
+  //     try {
+  //       // Simulate API call
+  //       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-        // For demo purposes, we'll consider tokens with "invalid" in them as invalid
-        if (token.includes("invalid")) {
-          setTokenValid(false)
-        }
-      } catch (err) {
-        setTokenValid(false)
-      }
-    }
+  //       // For demo purposes, we'll consider tokens with "invalid" in them as invalid
+  //       if (token.includes("invalid")) {
+  //         setTokenValid(false)
+  //       }
+  //     } catch (err) {
+  //       setTokenValid(false)
+  //     }
+  //   }
 
-    validateToken()
-  })
+  //   validateToken()
+  // })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -81,43 +77,43 @@ export default function ResetPasswordPage({ params }: { params: { token: string 
     }
   }
 
-  if (!tokenValid) {
-    return (
-      <div className="min-h-screen bg-gray-950 flex flex-col">
-        <div className="flex-1 flex items-center justify-center p-8">
-          <div className="w-full max-w-md">
-            <div className="text-center mb-8">
-              <Link href="/" className="inline-flex items-center gap-2">
-                <span className="rounded-md bg-red-600 p-1">
-                  <Film className="h-6 w-6 text-white" />
-                </span>
-                <span className="text-2xl font-bold text-white">CineFlix</span>
-              </Link>
+  // if (!tokenValid) {
+  //   return (
+  //     <div className="min-h-screen bg-gray-950 flex flex-col">
+  //       <div className="flex-1 flex items-center justify-center p-8">
+  //         <div className="w-full max-w-md">
+  //           <div className="text-center mb-8">
+  //             <Link href="/" className="inline-flex items-center gap-2">
+  //               <span className="rounded-md bg-red-600 p-1">
+  //                 <Film className="h-6 w-6 text-white" />
+  //               </span>
+  //               <span className="text-2xl font-bold text-white">CineFlix</span>
+  //             </Link>
 
-              <div className="flex justify-center mt-6 mb-4">
-                <AlertTriangle className="h-16 w-16 text-yellow-500" />
-              </div>
-              <h1 className="text-3xl font-bold text-white">Invalid or Expired Link</h1>
-              <p className="text-gray-400 mt-2">This password reset link is invalid or has expired.</p>
-            </div>
+  //             <div className="flex justify-center mt-6 mb-4">
+  //               <AlertTriangle className="h-16 w-16 text-yellow-500" />
+  //             </div>
+  //             <h1 className="text-3xl font-bold text-white">Invalid or Expired Link</h1>
+  //             <p className="text-gray-400 mt-2">This password reset link is invalid or has expired.</p>
+  //           </div>
 
-            <Button
-              onClick={() => router.push("/forgot-password")}
-              className="w-full bg-red-600 hover:bg-red-700 text-white"
-            >
-              Request New Link
-            </Button>
+  //           <Button
+  //             onClick={() => router.push("/forgot-password")}
+  //             className="w-full bg-red-600 hover:bg-red-700 text-white"
+  //           >
+  //             Request New Link
+  //           </Button>
 
-            <div className="text-center mt-6">
-              <Link href="/login" className="text-sm text-red-600 hover:text-red-500 hover:underline">
-                Back to Login
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  //           <div className="text-center mt-6">
+  //             <Link href="/login" className="text-sm text-red-600 hover:text-red-500 hover:underline">
+  //               Back to Login
+  //             </Link>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="min-h-screen bg-gray-950 flex flex-col">
