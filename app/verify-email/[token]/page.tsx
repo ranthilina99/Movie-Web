@@ -6,6 +6,11 @@
 // import { Film, CheckCircle, AlertTriangle, Loader2 } from "lucide-react"
 // import { Button } from "@/components/ui/button"
 
+
+// export async function generateStaticParams() {
+//   return [{ token: "example-token" }]
+// }
+
 // export default function VerifyEmailPage({ params }: { params: { token: string } }) {
 //   const router = useRouter()
 //   const { token } = params
