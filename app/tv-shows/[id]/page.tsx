@@ -12,6 +12,12 @@ import { SiteFooter } from "@/components/site-footer"
 import { Rating } from "@/components/ui/rating"
 import { tvShows } from "@/data/tv-shows"
 
+export async function generateStaticParams() {
+  return tvShows.map((show) => ({
+    id: show.id.toString(),
+  }));
+}
+
 export default async function TvShowPage({ params }: { params: { id: string } }) {
   const showId = Number.parseInt(params.id, 10)
   const show = tvShows.find((s) => s.id === showId) || tvShows[0]
