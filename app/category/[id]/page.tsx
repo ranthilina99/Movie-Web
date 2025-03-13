@@ -11,6 +11,12 @@ import { FilterControls } from "@/components/filter-controls"
 import { categories } from "@/data/categories"
 import { movies } from "@/data/movies"
 
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    id: category.id.toString(),
+  }));
+}
+
 export default function CategoryPage({ params }: { params: { id: string } }) {
   const categoryId = Number.parseInt(params.id)
   const category = categories.find((category) => category.id === categoryId)
@@ -102,4 +108,3 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
-
