@@ -10,6 +10,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 
+export async function generateStaticParams() {
+  return [{ token: "example-token" }]
+}
+
 export default function ResetPasswordPage({ params }: { params: { token: string } }) {
   const router = useRouter()
   const { token } = params
