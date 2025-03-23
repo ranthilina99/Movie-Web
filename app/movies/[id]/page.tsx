@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useParams } from "next/navigation"
 import { Plus, Share2, Star, Clock, Calendar, MessageCircle, ThumbsUp, ThumbsDown } from "lucide-react"
